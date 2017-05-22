@@ -1,0 +1,197 @@
+// Vertical Rythm - Compass
+
+
+//
+// Grille Typographie
+// --------------------------------------------------
+
+$grid-background-baseline-height:24px;
+$grid-background-total-columns:12;
+$grid-background-column-width: 60px;
+$grid-background-column-color: rgba(210, 210, 210, 0.30);
+//$grid-background-force-fluid: true;
+
+p {
+  //@include grid-background;
+  //@include column-grid-background;
+  //@include baseline-grid-background;
+}
+
+
+h2, h4, p {
+  //background-color: rgba(110,206,255,0.3);
+}
+
+
+
+// Headings
+// -------------------------
+
+// $base-font-size:16px; $base-line-height:24px;
+@include establish-baseline;
+
+h1,
+.h1 {
+  color: $heading-font-color;
+}
+
+h2,
+.h2 {
+  color: lighten($heading-font-color, 30%);
+}
+
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+  color: lighten($heading-font-color, 10%);
+}
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+
+  small,
+  .small {
+    font-weight: normal;
+    font-size: 65%;
+    color: $headings-small-color;
+  }
+}
+
+h1, .h1 { @include adjust-font-size-to(48px); } //font-size : 48px;
+h2, .h2 { @include adjust-font-size-to(36px); } //font-size : 36px;
+h3, .h3 { @include adjust-font-size-to(24px); } //font-size : 24px;
+h4, .h4 { @include adjust-font-size-to(21px); } //font-size : 21px;
+h5, .h5 { @include adjust-font-size-to(18px); } //font-size : 18px;
+h6, .h6 { @include adjust-font-size-to(16px); } //font-size : 16px;
+
+
+// Body text
+// -------------------------
+
+p {
+  color: $body-font-color;  
+  font-family: $body-font-family;  
+  font-weight: $body-font-weight;  
+  @include adjust-font-size-to(14px); //font-size : 14px;
+}
+
+.lead {
+  font-size: floor(($base-font-size * 1.15));
+  @include adjust-font-size-to(18px); //font-size : 18px;
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+  @include adjust-font-size-to(10px); //font-size : 10px;
+}
+
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+// Contextual colors
+.text-muted {
+  color: $text-muted;
+}
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+  ul,
+  ol {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+  }
+}
+
+// List options
+
+// [converter] extracted from `.list-unstyled` for libsass compatibility
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+// [converter] extracted as `@mixin list-unstyled` for libsass compatibility
+.list-unstyled {
+  @include list-unstyled;
+}
+
+
+// Inline turns list items into inline-block
+.list-inline {
+  @include list-unstyled;
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+}
+dt,
+dd {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Blockquotes
+blockquote {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+  border-left: 5px solid $blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    @include adjust-font-size-to(10px); //font-size : 14px;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+// Addresses
+address {
+  @include adjust-font-size-to(14px); //font-size : 14px;
+}

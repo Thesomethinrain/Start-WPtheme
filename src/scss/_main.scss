@@ -1,0 +1,32 @@
+/* Main
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+article {
+  background-color: #FFF;
+  padding: 1em;
+  margin: 1em 0;
+  @include single-box-shadow(0, 0, 6px, 0px, #9b9b9b);
+
+}
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #1EAEDB;
+  text-decoration: none;
+  font-family: 'Rokkitt', serif;
+  font-weight: 700;
+}
+a:hover {
+  color: #0FA0CE; }
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#header {
+  height: 400px;
+  background-color: #444;
+  text-align: center;
+}
+#header>h1 {
+  line-height: 400px;
+}

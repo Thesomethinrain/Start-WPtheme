@@ -1,0 +1,20 @@
+/* Mixins
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@mixin shadow ($x-pos:0, $y-pos:0, $distance:6px, $taille:0px, $couleur:rgba(0,0,0,.5), $inset: false) {
+  @if $inset {
+  -webkit-box-shadow: inset $x-pos $y-pos $distance $taille $couleur;
+  -moz-box-shadow: inset $x-pos $y-pos $distance $taille $couleur;
+  -o-box-shadow: inset $x-pos $y-pos $distance $taille $couleur;
+  box-shadow: inset $x-pos $y-pos $distance $taille $couleur;
+  } @else {
+  -webkit-box-shadow: $x-pos $y-pos $distance $taille $couleur;
+  -moz-box-shadow: $x-pos $y-pos $distance $taille $couleur;
+  -o-box-shadow: $x-pos $y-pos $distance $taille $couleur;
+  box-shadow: $x-pos $y-pos $distance $taille $couleur;
+  }
+}
+
+@mixin text-shadow ($x-pos:0, $y-pos:0, $distance:3px, $couleur:rgba(0,0,0,.5)) {
+    text-shadow: $x-pos $y-pos $distance $couleur;
+}
