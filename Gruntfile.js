@@ -31,7 +31,7 @@ grunt.initConfig({
 			'src/js/vendor/**/*.js', // tous les JS dans vendor
 			'src/js/main.js'  // ce fichier là
 			],
-			dest: 'dist/global.js'
+			dest: 'dist/js/global.js'
 		}
 	},
 
@@ -43,7 +43,7 @@ grunt.initConfig({
 				sourceMapName: 'dist/app.map'
 			},
 			files: {
-				'dist/global.js': ['js/vendor/**/*.js', 'js/main.js']
+				'dist/js/global.js': ['src/js/vendor/**/*.js', 'src/js/main.js']
 			}
 		}
 	},
@@ -73,8 +73,24 @@ grunt.initConfig({
 	copy: {
 		fonts: {
 			expand: true,
-			src: 'src/fonts/*',
-			dest: 'dist/fonts/'
+			cwd: 'src/fonts',
+			src: '**/*',
+			dest: 'dist/fonts',
+			//flatten: true
+		},
+		jslibs: {
+			expand: true,
+			cwd: 'src/js/libs',
+			src: '**/*',
+			dest: 'dist/js/libs',
+			//flatten: true
+		},
+		images: {			
+			expand: true,
+			cwd: 'src/images',
+			src: '**/*',
+			dest: 'dist/images',
+			//flatten: true
 		}
 	},
 
@@ -123,6 +139,31 @@ grunt.initConfig({
 				spawn: false,
 			},
 		},
+
+
+		copyfonts: {
+			files: ['src/fonts/**'],
+			tasks: ['copy:fonts'],
+			options: {
+				spawn: false,
+			}
+		},
+		 
+		copyjslibs: {
+			files: ['src/js/libs/**'],
+			tasks: ['copy:jslibs']
+		},
+		 
+		copyimages: {
+			files: ['src/images/**'],
+			tasks: ['copy:images'],
+			options: {
+				spawn: false,
+			}
+		},
+
+
+
 		options: {
 			livereload: true,
 		}
@@ -139,8 +180,9 @@ grunt.initConfig({
 			},
 			options: {
 				watchTask: true,
-				proxy: "local.dev/Site-CieLoba/",
-				port:8888			}
+				proxy: "local.dev/Site-SergeCrampon/",
+				//port:8888			
+			}
 		}
 	}
 
@@ -153,6 +195,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');
 grunt.loadNpmTasks('grunt-contrib-compass');
 grunt.loadNpmTasks('grunt-contrib-imagemin');
 grunt.loadNpmTasks('grunt-svgmin');
+grunt.loadNpmTasks('grunt-contrib-copy');
 grunt.loadNpmTasks('grunt-contrib-watch');
 grunt.loadNpmTasks('grunt-browser-sync');
 
